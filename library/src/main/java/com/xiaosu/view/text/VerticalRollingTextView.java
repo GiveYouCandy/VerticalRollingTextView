@@ -415,8 +415,10 @@ public class VerticalRollingTextView extends View {
                 //1.角标+1
                 mFirstVisibleIndex += itemCount;
                 //2.计算出正确的角标
-                mFirstVisibleIndex = mFirstVisibleIndex < mDataSetAdapter.getItemCount() ?
-                        mFirstVisibleIndex : mFirstVisibleIndex % mDataSetAdapter.getItemCount();
+                if (mDataSetAdapter.getItemCount()!=0) {
+                    mFirstVisibleIndex = mFirstVisibleIndex < mDataSetAdapter.getItemCount() ?
+                            mFirstVisibleIndex : mFirstVisibleIndex % mDataSetAdapter.getItemCount();
+                }
                 //3.位置复位
                 mScrollY = 0;
             } else {
